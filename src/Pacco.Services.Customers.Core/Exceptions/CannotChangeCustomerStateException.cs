@@ -1,5 +1,6 @@
-using System;
+using Convey.Exceptions;
 using Pacco.Services.Customers.Core.Entities;
+using System;
 
 namespace Pacco.Services.Customers.Core.Exceptions
 {
