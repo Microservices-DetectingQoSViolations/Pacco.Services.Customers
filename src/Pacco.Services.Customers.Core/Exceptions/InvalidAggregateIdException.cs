@@ -1,3 +1,5 @@
+using Convey.Exceptions;
+
 namespace Pacco.Services.Customers.Core.Exceptions
 {
     public class InvalidAggregateIdException : DomainException
