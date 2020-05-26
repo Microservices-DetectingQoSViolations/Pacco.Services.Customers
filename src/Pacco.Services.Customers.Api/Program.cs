@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Convey;
 using Convey.Secrets.Vault;
 using Convey.Logging;
+using Convey.QoS.Violation.Runtime;
 using Convey.Types;
 using Convey.WebApi;
 using Convey.WebApi.CQRS;
@@ -38,7 +39,8 @@ namespace Pacco.Services.Customers.Api
                         .Post<CompleteCustomerRegistration>("customers",
                             afterDispatch: (cmd, ctx) => ctx.Response.Created($"customers/{cmd.CustomerId}"))
                         .Put<ChangeCustomerState>("customers/{customerId}/state/{state}",
-                            afterDispatch: (cmd, ctx) => ctx.Response.NoContent())))
+                            afterDispatch: (cmd, ctx) => ctx.Response.NoContent()))
+                    .UseRuntimeMetrics())
                 .UseLogging()
                 .UseVault()
                 .Build()

@@ -86,7 +86,7 @@ namespace Pacco.Services.Customers.Infrastructure
                 .UseSwaggerDocs()
                 .UseJaeger()
                 .UseConvey()
-                .UseQoS()
+                .UseQoSCache()
                 .UsePublicContracts<ContractAttribute>()
                 .UseMetrics()
                 .UseCertificateAuthentication()
